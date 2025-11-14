@@ -1,0 +1,45 @@
+Q98: Print initials of a name with the surname displayed in full.
+
+/*
+Sample Test Cases:
+Input 1:
+John David Doe
+Output 1:
+J.D. Doe
+
+*/
+
+  #include <stdio.h>
+#include <string.h>  
+int main()
+{
+    char str[40];
+    printf("Enter your full name: ");
+    fgets(str, 40, stdin);
+    int f = 0;
+    printf("Initials: %c.", str[0]);
+    for (int i = 0; str[i]!='\0' ; i++)
+    {
+        if (str[i] == ' ')
+        {
+            f++;
+        }
+    }
+    int c = 0;
+    for (int i = 0; str[i]!='\0' ; i++)
+    {
+        if (str[i] == ' ')
+        {
+            c++;
+            if (c == f)
+            {
+                printf(" %s", &str[i + 1]);
+            }
+            else
+            {
+                printf("%c.", str[i + 1]);
+            }
+        }
+    }
+  return 0;
+}
